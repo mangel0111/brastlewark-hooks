@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
+import Header from '../Header';
 import { fetchGnomes } from '../../actions/gnomes';
-import DashboardPanel from '../../components/DashboardPanel';
+import DashboardPanel from '../DashboardPanel';
 import { useFetching } from '../../utils/hooks-utils';
 
 export const Dashboard = ({ gnomes, fetchGnomes }) => {

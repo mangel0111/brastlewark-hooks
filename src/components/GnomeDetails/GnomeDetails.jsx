@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
-import ImageBox from '../../components/ImageBox';
+import Header from '../Header';
+import ImageBox from '../ImageBox';
 import { fetchGnome } from '../../actions/gnomes';
 import { ProfileHeader, Image, DescriptionBlock, Professions } from './GnomeDetailsStyled';
 import { useFetching } from '../../utils/hooks-utils';
