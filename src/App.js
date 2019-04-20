@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Dashboard from './containers/Dashboard';
+import Loading from './containers/Loading';
+import GnomesDetail from './containers/GnomeDetails';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Switch>
+					<Route exact path='/' component={Dashboard} />
+					<Route exact path='/gnomes/:id' component={GnomesDetail} />
+				</Switch>
+				<Loading />
+			</div>
+		);
+	}
 }
 
-export default App;
+export default connect()(App);
