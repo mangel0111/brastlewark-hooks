@@ -1,39 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 import { fetchGnomes } from '../../actions/gnomes';
 import DashboardPanel from '../../components/DashboardPanel';
+import { useFetching } from '../../utils/hooks-utils';
 
-export class Dashboard extends Component {
+export const Dashboard = ({ gnomes, fetchGnomes }) => {
+	useFetching(() => fetchGnomes());
 
-	componentDidMount(){
-		const { dispatch } = this.props;
-		dispatch(fetchGnomes({
-			params: {}
-		}));	
-	}
-
-	render(){
-		const { gnomes } = this.props;
-		
-		return (<div>
+	return (
+		<div>
 			<Header />
-			<DashboardPanel 
+			<DashboardPanel
 				gnomes={gnomes}
 			/>
 		</div>);
-	}
-}
+};
 
 Dashboard.propTypes = {
-	dispatch: PropTypes.func,
+	fetchGnomes: PropTypes.func,
 	gnomes: PropTypes.array
 };
 
+const mapDispatchToProps = dispatch => ({
+	fetchGnomes: () => dispatch(fetchGnomes({
+		params: {}
+	}))
+});
 
 export const mapStateToProps = (state) => ({
 	gnomes: state.gnomes.gnomes
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
