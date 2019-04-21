@@ -1,43 +1,16 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { HeaderBar, Gradient, NavBar, Icon } from './HeaderStyled';
 
-const HeaderBar = styled.nav`
-    height: 40px;
-`;
+export const Header = ({ light }) =>
+	(<HeaderBar>
+		<Gradient />
+		<NavBar>
+			<Icon onClick={() => window.location = '/'} light={light}>W.</Icon>
+		</NavBar>
+	</HeaderBar>);
 
-const NavBar = styled.div`
-    display: flex;
-`;
-
-const Icon = styled.div`
-    font-family: 'Hind-SemiBold';
-    font-size: 28px;
-	margin: 0 30px;
-	cursor: pointer;
-`;
-
-const Gradient = styled.div`
-    background: linear-gradient(#eaeaea, #f9f9fb);
-    height: 20px;
-`;
-
-export class Header extends Component {
-
-	render(){
-		const { light } = this.props;
-		
-		return (
-			<HeaderBar>
-				<Gradient />
-				<NavBar>
-					<Icon onClick={()=> window.location = '/'} light={light}>W.</Icon>					
-				</NavBar>
-			</HeaderBar>);
-	}
-}
-
-Header.defaultProps ={
+Header.defaultProps = {
 	light: false
 };
 
