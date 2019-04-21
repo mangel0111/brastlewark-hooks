@@ -6,21 +6,17 @@ import { fetchGnomes } from '../../actions/gnomes';
 import DashboardPanel from '../DashboardPanel';
 import { useFetching } from '../../utils/hooks-utils';
 
-export const Dashboard = ({ gnomes, fetchGnomes }) => {
+export const Dashboard = ({ fetchGnomes }) => {
 	useFetching(() => fetchGnomes());
-
 	return (
 		<div>
 			<Header />
-			<DashboardPanel
-				gnomes={gnomes}
-			/>
+			<DashboardPanel />
 		</div>);
 };
 
 Dashboard.propTypes = {
-	fetchGnomes: PropTypes.func,
-	gnomes: PropTypes.array
+	fetchGnomes: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -29,8 +25,4 @@ const mapDispatchToProps = dispatch => ({
 	}))
 });
 
-export const mapStateToProps = (state) => ({
-	gnomes: state.gnomes.gnomes
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(Dashboard);

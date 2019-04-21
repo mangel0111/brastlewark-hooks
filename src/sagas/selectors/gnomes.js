@@ -1,0 +1,1 @@
+export const getGnomes = state => state.gnomes.gnomes;
