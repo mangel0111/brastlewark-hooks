@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Dashboard from './components/Dashboard';
 import Loading from './components/Loading';
 import GnomesDetail from './components/GnomeDetails';
@@ -15,4 +14,4 @@ export const App = () => (
   </Fragment>
 );
 
-export default connect()(App);
+export default App;

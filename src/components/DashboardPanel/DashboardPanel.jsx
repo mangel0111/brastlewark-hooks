@@ -11,11 +11,11 @@ export const DashboardPanel = ({ gnomesFiltered, gnomes }) => (
       <Title>Gnomes</Title>
       <FilterText gnomes={gnomes} />
     </Options>
-    <GnomesList>
+    <GnomesList data-testid="gnome-box-container">
       {gnomesFiltered.length !== 0 ? (
         gnomesFiltered.map(gnome => <GnomeBox key={gnome.id} gnome={gnome} />)
       ) : (
-        <p>No gnomes to display</p>
+        <p data-testid="empty-gnomes-container">No gnomes to display</p>
       )}
     </GnomesList>
   </Dashboard>
