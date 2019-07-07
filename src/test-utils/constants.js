@@ -1,3 +1,7 @@
+export const emptyResponse = {
+  Brastlewark: []
+};
+
 export const correctAnwser = {
   Brastlewark: [
     {

@@ -5,13 +5,9 @@ import { renderWithState, cleanup } from '../../test-utils/render-utils';
 import { FetchUtilsMock } from '../../test-utils/api-utils';
 
 import fetchApi from '../../utils/api-utils';
-import { correctAnwser } from '../../test-utils/constants';
+import { correctAnwser, emptyResponse } from '../../test-utils/constants';
 
 jest.mock('../../utils/api-utils');
-
-const emptyResponse = {
-  Brastlewark: []
-};
 
 describe('Dashboard', () => {
   let fetchUtil;
